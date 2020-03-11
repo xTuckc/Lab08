@@ -12,20 +12,20 @@ public class ConfirmBid extends javax.swing.JDialog {
     public ConfirmBid(JFrame f, boolean m, Contract theContract) {
         super(f, m);
         initComponents();
-        
+
         this.jLabelContractID.setText(theContract.getContractID());
         this.jLabelOrigin.setText(theContract.getOriginCity());
         this.jLabelDestination.setText(theContract.getDestCity());
         this.jLabelOrderItem.setText(theContract.getOrderItem());
-        
+
         Integer startValue = 100;
         Integer minValue = 100;
         Integer maxValue = 10000;
         Integer stepValue = 50;
-        SpinnerModel numModel = new SpinnerNumberModel(startValue, minValue, maxValue,stepValue);
+        SpinnerModel numModel = new SpinnerNumberModel(startValue, minValue, maxValue, stepValue);
         jSpinner1.setModel(numModel);
-       String optionsFileName;
-        optionsFileName = System.getProperty("user.dir") + "\\scr\\SelectContractLab06\\output_bid.txt";  
+        String optionsFileName;
+        optionsFileName = System.getProperty("user.dir") + "\\scr\\SelectContractLab06\\output_bid.txt";
     }
 
     /**
@@ -54,6 +54,7 @@ public class ConfirmBid extends javax.swing.JDialog {
         jLabelDestination = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Place bid on selected contract");
 
         jLabel12.setText("Place Bid");
 

@@ -14,10 +14,11 @@ public class ContractView extends javax.swing.JFrame {
     public ContractView() {
         initComponents();
     }
-    
-    void addComboBoxListener(ItemListener listenForComboBox){
+
+    void addComboBoxListener(ItemListener listenForComboBox) {
         jComboOriginCity.addItemListener(listenForComboBox);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,7 +200,7 @@ public class ContractView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBidButton;
     private javax.swing.JComboBox<String> jComboOriginCity;
@@ -220,57 +221,57 @@ public class ContractView extends javax.swing.JFrame {
     private javax.swing.JButton jPrevButton;
     // End of variables declaration//GEN-END:variables
 
-public void disableNextButton(boolean disable){
-    this.jNextButton.setEnabled(disable);
-}    
+    public void disableNextButton(boolean disable) {
+        this.jNextButton.setEnabled(disable);
+    }
 
-public void disablePrevButton(boolean disable){
-    this.jPrevButton.setEnabled(disable);
-}
+    public void disablePrevButton(boolean disable) {
+        this.jPrevButton.setEnabled(disable);
+    }
 
-void addPrevListener(ActionListener listenForPrevButton){
-    jPrevButton.addActionListener(listenForPrevButton);
-}
+    void addPrevListener(ActionListener listenForPrevButton) {
+        jPrevButton.addActionListener(listenForPrevButton);
+    }
 
-void addNextListener(ActionListener listenForNextButton){
-    jNextButton.addActionListener(listenForNextButton);
-}
+    void addNextListener(ActionListener listenForNextButton) {
+        jNextButton.addActionListener(listenForNextButton);
+    }
 
-void addBidListener(ActionListener listenForBidButton){
-    jBidButton.addActionListener(listenForBidButton);
-}
+    void addBidListener(ActionListener listenForBidButton) {
+        jBidButton.addActionListener(listenForBidButton);
+    }
 
-void displayErrorMessage(String errorMessage){
-    JOptionPane.showMessageDialog(this, errorMessage);
-}
+    void displayErrorMessage(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
 
-void setContractID(String contractID){
-    jLabelContractID.setText(contractID);
-}
+    void setContractID(String contractID) {
+        jLabelContractID.setText(contractID);
+    }
 
-void setOriginCity(String originCity){
-    jLabelOriginCity.setText(originCity);
-}
+    void setOriginCity(String originCity) {
+        jLabelOriginCity.setText(originCity);
+    }
 
-void setDestCity(String destCity){
-    jLabelDestCity.setText(destCity);
-}
+    void setDestCity(String destCity) {
+        jLabelDestCity.setText(destCity);
+    }
 
-void setOrderItem(String orderItem){
-    jLabelOrderItem.setText(orderItem);
-}
+    void setOrderItem(String orderItem) {
+        jLabelOrderItem.setText(orderItem);
+    }
 
-void setContractCount(String contractCount){
-    jLabelContractCount.setText(contractCount);
-}
+    void setContractCount(String contractCount) {
+        jLabelContractCount.setText(contractCount);
+    }
 
-void updateContractViewPanel(int currentContractNum, int contractCount){
-    setContractCount((1+currentContractNum) + " of " + contractCount + " contracts");
-}
+    void updateContractViewPanel(int currentContractNum, int contractCount) {
+        setContractCount((1 + currentContractNum) + " of " + contractCount + " contracts");
+    }
 
-void setOriginCityList(String[] cityList) {
-    final DefaultComboBoxModel model = new DefaultComboBoxModel(cityList);
-    this.jComboOriginCity.setModel(model);
-}
+    void setOriginCityList(String[] cityList) {
+        final DefaultComboBoxModel model = new DefaultComboBoxModel(cityList);
+        this.jComboOriginCity.setModel(model);
+    }
 
 }

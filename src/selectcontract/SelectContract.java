@@ -12,5 +12,5 @@ public class SelectContract {
         theController = new ContractController(theView, theModel);
         theView.setVisible(true);
     }
-    
+
 }

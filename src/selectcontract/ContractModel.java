@@ -13,13 +13,13 @@ class ContractModel {
     private int contractCounter;
     private ArrayList<Contract> theContractsAll;
     private SortedSet<String> originCityList;
-    
+
     public ContractModel() {
         contractCounter = 0;
         theContracts = new ArrayList<Contract>();
         originCityList = new TreeSet<>();
         String filename = "C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContract\\src\\selectcontract\\Contracts.txt";
-        
+
         try {
             FileReader fileReader = new FileReader(filename);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -48,21 +48,21 @@ class ContractModel {
         originCityList.add("All");
         theContractsAll = theContracts;
     }
-    
+
     public String[] getOriginCityList() {
         String[] a;
         a = originCityList.toArray(new String[originCityList.size()]);
         return a;
     }
-    
-    public void updateContractList(String city){
+
+    public void updateContractList(String city) {
         theContracts = new ArrayList<>(theContractsAll);
         if (city != "All") {
             theContracts.removeIf(s -> !s.contains(city));
         }
         contractCounter = 0;
     }
-    
+
     boolean foundContracts() {
         return theContracts.size() >= 1;
     }

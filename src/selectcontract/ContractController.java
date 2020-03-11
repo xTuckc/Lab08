@@ -22,12 +22,12 @@ class ContractController {
     }
 
     private void setUpDisplay() {
-            theView.disableNextButton(theModel.getCurrentContractNum() < theModel.getContractCount()-1);     
-            theView.disablePrevButton(theModel.getCurrentContractNum() > 0);
-                
+        theView.disableNextButton(theModel.getCurrentContractNum() < theModel.getContractCount() - 1);
+        theView.disablePrevButton(theModel.getCurrentContractNum() > 0);
+
         try {
             if (theModel.foundContracts()) {
-                Contract c = theModel.getTheContract() ;
+                Contract c = theModel.getTheContract();
                 theView.setContractID(c.getContractID());
                 theView.setDestCity(c.getDestCity());
                 theView.setOriginCity(c.getOriginCity());
@@ -66,7 +66,7 @@ class ContractController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (theModel.getCurrentContractNum() == theModel.getContractCount()-1) {
+            if (theModel.getCurrentContractNum() == theModel.getContractCount() - 1) {
                 return;
             }
             try {
@@ -78,7 +78,7 @@ class ContractController {
             setUpDisplay();
         }
     }
-    
+
     class ComboListener implements ItemListener {
 
         @Override
@@ -88,7 +88,7 @@ class ContractController {
                 String selectedCity = e.getItem().toString();
                 System.out.println(selectedCity);
                 theModel.updateContractList(selectedCity);
-            setUpDisplay();
+                setUpDisplay();
             }
         }
     }
@@ -99,7 +99,7 @@ class ContractController {
         public void actionPerformed(ActionEvent e) {
             try {
                 ConfirmBid cb;
-                cb = new ConfirmBid(theView, true, --------);
+                cb = new ConfirmBid(theView, true, theModel.getTheContract());
                 cb.setLocationRelativeTo(null);
                 cb.setVisible(true);
             } catch (Exception ex) {
