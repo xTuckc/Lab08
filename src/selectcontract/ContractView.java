@@ -3,7 +3,6 @@ package selectcontract;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class ContractView extends javax.swing.JFrame {

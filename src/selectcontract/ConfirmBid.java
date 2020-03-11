@@ -25,7 +25,7 @@ public class ConfirmBid extends javax.swing.JDialog {
         SpinnerModel numModel = new SpinnerNumberModel(startValue, minValue, maxValue, stepValue);
         jSpinner1.setModel(numModel);
         String optionsFileName;
-        optionsFileName = System.getProperty("user.dir") + "\\scr\\SelectContractLab06\\output_bid.txt";
+        optionsFileName = System.getProperty("user.dir") + "\\src\\SelectContractLab06\\output_bid.txt";
     }
 
     /**
@@ -97,7 +97,7 @@ public class ConfirmBid extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

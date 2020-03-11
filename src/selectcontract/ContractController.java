@@ -7,8 +7,8 @@ import java.awt.event.ItemListener;
 
 class ContractController {
 
-    private ContractView theView;
-    private ContractModel theModel;
+    private final ContractView theView;
+    private final ContractModel theModel;
 
     ContractController(ContractView theView, ContractModel theModel) {
         this.theView = theView;
