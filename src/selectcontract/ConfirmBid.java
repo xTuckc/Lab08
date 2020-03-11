@@ -193,27 +193,25 @@ public class ConfirmBid extends javax.swing.JDialog {
         DateFormat dateFormat = new SimpleDateFormat("MMMM dd yyyy HH:mm z");
         Date date = new Date();
         String printout = name + ", " + contractID + ", " + bidFormat + ", " + dateFormat.format(date);
-        
-         
-            try {
-                if (!name.isEmpty() && name.matches("[a-zA-Z ]+")){
-                    FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\JavaApplication4\\src\\selectcontract\\MyContractBids.txt", true);
-                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                    fileWriter.write(printout + "\n");
-                    fileWriter.close();
-                    bufferedWriter.close();
-                    JFrame frame = new JFrame();
-                    JOptionPane.showMessageDialog(frame, "Your name as " + name + " with bid amount " + bidFormat + " has been successfully saved");
-                }
-                else {
-                    JFrame frame = new JFrame();
-                    JOptionPane.showMessageDialog(frame, "Invalid name entry");
-                }
-            } catch (IOException e) {
-                System.out.println(e);                   
+
+        try {
+            if (!name.isEmpty() && name.matches("[a-zA-Z ]+")) {
+                FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\JavaApplication4\\src\\selectcontract\\MyContractBids.txt", true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                fileWriter.write(printout + "\n");
+                fileWriter.close();
+                bufferedWriter.close();
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Your name as " + name + " with bid amount " + bidFormat + " has been successfully saved");
+            } else {
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Invalid name entry");
             }
-        
-        
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
