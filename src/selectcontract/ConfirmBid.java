@@ -1,15 +1,25 @@
 package selectcontract;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 
 public class ConfirmBid extends javax.swing.JDialog {
 
+    //private final String optionsFileName;
     /**
      * Creates new form ConfirmBid
      */
     public ConfirmBid(JFrame f, boolean m, Contract theContract) {
+
         super(f, m);
         initComponents();
 
@@ -24,8 +34,7 @@ public class ConfirmBid extends javax.swing.JDialog {
         Integer stepValue = 50;
         SpinnerModel numModel = new SpinnerNumberModel(startValue, minValue, maxValue, stepValue);
         jSpinner1.setModel(numModel);
-        String optionsFileName;
-        optionsFileName = System.getProperty("user.dir") + "\\src\\SelectContractLab06\\output_bid.txt";
+        //optionsFileName = System.getProperty("user.dir") + "C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\JavaApplication4\\src\\selectcontract\\MyContractBids.txt";
     }
 
     /**
@@ -37,6 +46,7 @@ public class ConfirmBid extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jOptionPane1 = new javax.swing.JOptionPane();
         jLabel12 = new javax.swing.JLabel();
         jButtonSave = new javax.swing.JButton();
         jButtonCancel = new javax.swing.JButton();
@@ -173,6 +183,37 @@ public class ConfirmBid extends javax.swing.JDialog {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         System.out.println(jSpinner1.getValue());
+        //String filename = "C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContract\\src\\selectcontract\\MyContractBids.txt";
+
+        String name = jTextName.getText();
+        String contractID = jLabelContractID.getText();
+        int bidAmount = (int) jSpinner1.getValue();
+        NumberFormat money = NumberFormat.getCurrencyInstance();
+        String bidFormat = money.format(bidAmount);
+        DateFormat dateFormat = new SimpleDateFormat("MMMM dd yyyy HH:mm z");
+        Date date = new Date();
+        String printout = name + ", " + contractID + ", " + bidFormat + ", " + dateFormat.format(date);
+        
+         
+            try {
+                if (!name.isEmpty() && name.matches("[a-zA-Z ]+")){
+                    FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\JavaApplication4\\src\\selectcontract\\MyContractBids.txt", true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    fileWriter.write(printout + "\n");
+                    fileWriter.close();
+                    bufferedWriter.close();
+                    JFrame frame = new JFrame();
+                    JOptionPane.showMessageDialog(frame, "Your name as " + name + " with bid amount " + bidFormat + " has been successfully saved");
+                }
+                else {
+                    JFrame frame = new JFrame();
+                    JOptionPane.showMessageDialog(frame, "Invalid name entry");
+                }
+            } catch (IOException e) {
+                System.out.println(e);                   
+            }
+        
+        
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
@@ -197,6 +238,7 @@ public class ConfirmBid extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelDestination;
     private javax.swing.JLabel jLabelOrderItem;
     private javax.swing.JLabel jLabelOrigin;
+    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextName;
     // End of variables declaration//GEN-END:variables

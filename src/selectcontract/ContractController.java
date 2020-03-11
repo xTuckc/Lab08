@@ -14,7 +14,7 @@ class ContractController {
         this.theView = theView;
         this.theModel = theModel;
         this.theView.addPrevListener(new PrevButtonListener());
-        // this.theView.addBidListener(new BidButtonListener());
+        this.theView.addBidListener(new BidButtonListener());
         this.theView.addNextListener(new NextButtonListener());
         this.theView.addComboBoxListener(new ComboListener());
         this.theView.setOriginCityList(theModel.getOriginCityList());
@@ -106,7 +106,6 @@ class ContractController {
                 System.out.println(ex);
                 theView.displayErrorMessage("Error: The numbers entered must be integers.");
             }
-            setUpDisplay();
         }
     }
 }
