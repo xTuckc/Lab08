@@ -44,6 +44,11 @@ public class ContractView extends javax.swing.JFrame {
         jPrevButton = new javax.swing.JButton();
         jBidButton = new javax.swing.JButton();
         jNextButton = new javax.swing.JButton();
+        jAddContractButton = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuNewContract = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -74,7 +79,7 @@ public class ContractView extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(jComboOriginCity, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,6 +117,8 @@ public class ContractView extends javax.swing.JFrame {
 
         jNextButton.setText("Next");
 
+        jAddContractButton.setText("Add Contract");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -125,10 +132,15 @@ public class ContractView extends javax.swing.JFrame {
                         .addComponent(jLabelContractID))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jAddContractButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(172, 172, 172)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelOriginCity, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -159,7 +171,9 @@ public class ContractView extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(19, 19, 19)
                         .addComponent(jLabel5)
-                        .addGap(65, 65, 65)
+                        .addGap(36, 36, 36)
+                        .addComponent(jAddContractButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelContractCount))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -175,6 +189,23 @@ public class ContractView extends javax.swing.JFrame {
                             .addComponent(jBidButton))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
+
+        jMenu2.setText("File");
+
+        jMenuNewContract.setText("New Contract");
+        jMenuNewContract.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuNewContractActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuNewContract);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,7 +231,12 @@ public class ContractView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuNewContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNewContractActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuNewContractActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jAddContractButton;
     private javax.swing.JButton jBidButton;
     private javax.swing.JComboBox<String> jComboOriginCity;
     private javax.swing.JDialog jDialog1;
@@ -214,6 +250,10 @@ public class ContractView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDestCity;
     private javax.swing.JLabel jLabelOrderItem;
     private javax.swing.JLabel jLabelOriginCity;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuNewContract;
     private javax.swing.JButton jNextButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -238,6 +278,10 @@ public class ContractView extends javax.swing.JFrame {
 
     void addBidListener(ActionListener listenForBidButton) {
         jBidButton.addActionListener(listenForBidButton);
+    }
+    
+    void addAddContractListener(ActionListener listenForAddContractButton) {
+        jAddContractButton.addActionListener(listenForAddContractButton);
     }
 
     void displayErrorMessage(String errorMessage) {

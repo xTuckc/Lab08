@@ -17,6 +17,7 @@ class ContractController {
         this.theView.addBidListener(new BidButtonListener());
         this.theView.addNextListener(new NextButtonListener());
         this.theView.addComboBoxListener(new ComboListener());
+        this.theView.addAddContractListener(new AddContractListener());
         this.theView.setOriginCityList(theModel.getOriginCityList());
         setUpDisplay();
     }
@@ -102,6 +103,22 @@ class ContractController {
                 cb = new ConfirmBid(theView, true, theModel.getTheContract());
                 cb.setLocationRelativeTo(null);
                 cb.setVisible(true);
+            } catch (Exception ex) {
+                System.out.println(ex);
+                theView.displayErrorMessage("Error: The numbers entered must be integers.");
+            }
+        }
+    }
+    
+    class AddContractListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                AddContract ac;
+                ac = new AddContract(theView, true, theModel.getTheContract());
+                ac.setLocationRelativeTo(null);
+                ac.setVisible(true);
             } catch (Exception ex) {
                 System.out.println(ex);
                 theView.displayErrorMessage("Error: The numbers entered must be integers.");
