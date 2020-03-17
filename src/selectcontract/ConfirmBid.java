@@ -196,7 +196,7 @@ public class ConfirmBid extends javax.swing.JDialog {
 
         try {
             if (!name.isEmpty() && name.matches("[a-zA-Z ]+")) {
-                FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\JavaApplication4\\src\\selectcontract\\MyContractBids.txt", true);
+                FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContractLab07\\Lab07\\src\\selectcontract\\MyContractBids.txt", true);
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 fileWriter.write(printout + "\n");
                 fileWriter.close();

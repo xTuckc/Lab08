@@ -18,7 +18,7 @@ class ContractModel {
         contractCounter = 0;
         theContracts = new ArrayList<Contract>();
         originCityList = new TreeSet<>();
-        String filename = "C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContract\\src\\selectcontract\\Contracts.txt";
+        String filename = "C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContractLab07\\Lab07\\src\\selectcontract\\contracts.txt";
 
         try {
             FileReader fileReader = new FileReader(filename);
