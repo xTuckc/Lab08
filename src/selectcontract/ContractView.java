@@ -69,6 +69,11 @@ public class ContractView extends javax.swing.JFrame {
         jLabel4.setText("Filter By Origin:");
 
         jComboOriginCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboOriginCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboOriginCityActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -234,6 +239,10 @@ public class ContractView extends javax.swing.JFrame {
     private void jMenuNewContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNewContractActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuNewContractActionPerformed
+
+    private void jComboOriginCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboOriginCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboOriginCityActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jAddContractButton;

@@ -8,14 +8,8 @@ package selectcontract;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -29,13 +23,6 @@ public class AddContract extends javax.swing.JDialog {
     public AddContract(JFrame f, boolean m, Contract theContract) {
         super(f, m);
         initComponents();
-/*
-        this.jLabelContractID.setText(theContract.getContractID());
-        this.jLabelOrigin.setText(theContract.getOriginCity());
-        this.jLabelDestination.setText(theContract.getDestCity());
-        this.jLabelOrderItem.setText(theContract.getOrderItem());
-*/
-        
     }
 
     /**
@@ -102,12 +89,20 @@ public class AddContract extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSave)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancel)
+                        .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextContractID))
+                            .addComponent(jTextContractID, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,24 +120,16 @@ public class AddContract extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(jTextOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))
+                                .addComponent(jTextOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(51, 51, 51))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSave)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCancel)
-                        .addGap(159, 159, 159))))
+                                .addGap(27, 27, 27)))
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -159,43 +146,66 @@ public class AddContract extends javax.swing.JDialog {
                                     .addComponent(jTextOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
-                                .addComponent(jTextDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonSave)
-                            .addComponent(jButtonCancel))
-                        .addGap(39, 39, 39))
+                                .addComponent(jTextDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101))))
+                        .addGap(1, 1, 1)))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSave)
+                    .addComponent(jButtonCancel))
+                .addGap(39, 39, 39))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        
+
         String contractID = jTextContractID.getText().toUpperCase();
         // contractID = contractID.toUpperCase();
         String origin = jTextOrigin.getText();
         String destination = jTextDestination.getText();
         String order = jTextOrderItem.getText();
         String printout = contractID + "," + origin + "," + destination + "," + order;
+        JFrame frame = new JFrame();
 
         try {
             if (!contractID.isEmpty() && contractID.matches("^[0-9][a-zA-Z]{3}$")) {
-                FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContractLab07\\Lab07\\src\\selectcontract\\contracts.txt", true);
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                fileWriter.write(printout + "\n");
-                fileWriter.close();
-                bufferedWriter.close();
-                JFrame frame = new JFrame();
-                // JOptionPane.showMessageDialog(frame, "Your name as " + name + " with bid amount " +  " has been successfully saved");
+                if (!origin.isEmpty() && origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George")) {
+                    if (!destination.isEmpty() && destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George")) {
+                        if ((!origin.equals(destination))) {
+                            if (!order.isEmpty() && order.matches("^[a-zA-Z0-9]*$") && (!order.matches("[0-9]*")) && (!order.matches("^[^,]*"))) {
+                                FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContractLab07\\Lab07\\src\\selectcontract\\contracts.txt", true);
+                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                                fileWriter.write("\n" + printout);
+                                fileWriter.close();
+                                bufferedWriter.close();
+                                // JOptionPane.showMessageDialog(frame, "Your name as " + name + " with bid amount " +  " has been successfully saved");
+                            } else {
+                            JOptionPane.showMessageDialog(frame, "Invalid Order item");
+                        }
+                        } else {
+                            JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
+                        }
+                    } else {
+                        if (origin.equals(destination)) {
+                            JOptionPane.showMessageDialog(frame, "Invalid Destination entry");
+                        } else if (!(destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George"))) {
+                            JOptionPane.showMessageDialog(frame, "Invalid Destination entry");
+                        }
+                    }
+                } else {
+                    if (origin.equals(destination)) {
+                        JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
+                    } else if (!(origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George"))) {
+                        JOptionPane.showMessageDialog(frame, "Invalid Origin entry");
+                    }
+                }
             } else {
-                JFrame frame = new JFrame();
-                JOptionPane.showMessageDialog(frame, "Invalid name entry");
+                JOptionPane.showMessageDialog(frame, "Invalid ContractID entry");
             }
         } catch (IOException e) {
             System.out.println(e);

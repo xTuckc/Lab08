@@ -120,8 +120,7 @@ class ContractController {
                 ac.setLocationRelativeTo(null);
                 ac.setVisible(true);
             } catch (Exception ex) {
-                System.out.println(ex);
-                theView.displayErrorMessage("Error: The numbers entered must be integers.");
+                System.out.println(ex);               
             }
         }
     }
