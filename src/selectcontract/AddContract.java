@@ -45,6 +45,7 @@ public class AddContract extends javax.swing.JDialog {
         jTextOrigin = new javax.swing.JTextField();
         jTextDestination = new javax.swing.JTextField();
         jTextOrderItem = new javax.swing.JTextField();
+        jButtonReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,19 +69,33 @@ public class AddContract extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("You are adding a contract. Please enter the following information");
 
         jLabel3.setText("ContractID");
 
+        jTextContractID.setToolTipText("Must be in the format \"1ABC\"");
         jTextContractID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextContractIDActionPerformed(evt);
             }
         });
 
+        jTextOrigin.setToolTipText("<html>Valid origin cities are: Victoria, Vancouer, Seattle, Nanaimo or Prince George.<br/>Cannot be the same as destination city.</html>");
+
+        jTextDestination.setToolTipText("<html>Valid destination cities are: Victoria, Vancouer, Seattle, Nanaimo or Prince George.<br/>Cannot be the same as origin city.</html>");
         jTextDestination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDestinationActionPerformed(evt);
+            }
+        });
+
+        jTextOrderItem.setToolTipText("Order Item cannot be all numbers and must contain no commas");
+
+        jButtonReset.setText("Reset");
+        jButtonReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetActionPerformed(evt);
             }
         });
 
@@ -88,17 +103,9 @@ public class AddContract extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSave)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCancel)
-                        .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,21 +130,33 @@ public class AddContract extends javax.swing.JDialog {
                                 .addComponent(jTextOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(27, 27, 27)))
-                        .addGap(35, 35, 35))))
+                                .addGap(27, 27, 27))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancel)
+                        .addGap(70, 70, 70)))
+                .addGap(66, 66, 66))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,11 +171,12 @@ public class AddContract extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
-                .addGap(38, 38, 38)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSave)
-                    .addComponent(jButtonCancel))
-                .addGap(39, 39, 39))
+                    .addComponent(jButtonCancel)
+                    .addComponent(jButtonReset))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,16 +197,20 @@ public class AddContract extends javax.swing.JDialog {
                 if (!origin.isEmpty() && origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George")) {
                     if (!destination.isEmpty() && destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George")) {
                         if ((!origin.equals(destination))) {
-                            if (!order.isEmpty() && order.matches("^[a-zA-Z0-9]*$") && (!order.matches("[0-9]*")) && (!order.matches("^[^,]*"))) {
+                            if (!order.isEmpty() && order.matches("^[a-zA-Z0-9]*$") && (!order.matches("[0-9]*")) && (order.matches("^[^,]+"))) {
                                 FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContractLab07\\Lab07\\src\\selectcontract\\contracts.txt", true);
                                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                                 fileWriter.write("\n" + printout);
                                 fileWriter.close();
                                 bufferedWriter.close();
-                                // JOptionPane.showMessageDialog(frame, "Your name as " + name + " with bid amount " +  " has been successfully saved");
+                                JOptionPane.showMessageDialog(frame, "Your order of: " + order + ", from " + origin + " to " + destination + " has been successfully been placed.\nYour Contract ID is: " + contractID);
+                                jTextContractID.setText("");
+                                jTextOrigin.setText("");
+                                jTextDestination.setText("");
+                                jTextOrderItem.setText("");                              
                             } else {
-                            JOptionPane.showMessageDialog(frame, "Invalid Order item");
-                        }
+                                JOptionPane.showMessageDialog(frame, "Invalid Order item");
+                            }
                         } else {
                             JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
                         }
@@ -210,7 +234,6 @@ public class AddContract extends javax.swing.JDialog {
         } catch (IOException e) {
             System.out.println(e);
         }
-
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
@@ -225,12 +248,20 @@ public class AddContract extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextDestinationActionPerformed
 
+    private void jButtonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetActionPerformed
+        jTextContractID.setText("");
+        jTextOrigin.setText("");
+        jTextDestination.setText("");
+        jTextOrderItem.setText("");
+    }//GEN-LAST:event_jButtonResetActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonReset;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

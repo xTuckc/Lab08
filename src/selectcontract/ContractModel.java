@@ -57,13 +57,13 @@ class ContractModel {
 
     public void updateContractList(String city) {
         theContracts = new ArrayList<>(theContractsAll);
-        if (city != "All") {
+        if (!"All".equals(city)) {
             theContracts.removeIf(s -> !s.contains(city));
         }
         contractCounter = 0;
     }
 
-    boolean foundContracts() {
+    public boolean foundContracts() {
         return theContracts.size() >= 1;
     }
 

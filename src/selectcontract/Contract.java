@@ -37,6 +37,6 @@ public class Contract {
     }
 
     boolean contains(String city) {
-        return city == originCity;
+        return city.equals(originCity);
     }
 }

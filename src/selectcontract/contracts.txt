@@ -1,3 +1,9 @@
 4RDW,Victoria,Prince George,Flowers
 8EKD,Vancouver,Victoria,Vegetable
 3HQC,Seattle,Vancouver,Pharmaceutical
+1ASD,Prince George,Vancouver,Potatoes
+3HFG,Nanaimo,Victoria,Yeets
+4RDW,Victoria,Prince George,Flowers
+8EKD,Vancouver,Victoria,Vegetable
+3HQC,Seattle,Vancouver,Pharmaceutical
+1ADF,Victoria,Vancouver,Oreos

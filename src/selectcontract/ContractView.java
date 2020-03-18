@@ -44,10 +44,10 @@ public class ContractView extends javax.swing.JFrame {
         jPrevButton = new javax.swing.JButton();
         jBidButton = new javax.swing.JButton();
         jNextButton = new javax.swing.JButton();
-        jAddContractButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuNewContract = new javax.swing.JMenuItem();
+        jMenuQuit = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -122,8 +122,6 @@ public class ContractView extends javax.swing.JFrame {
 
         jNextButton.setText("Next");
 
-        jAddContractButton.setText("Add Contract");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -137,15 +135,10 @@ public class ContractView extends javax.swing.JFrame {
                         .addComponent(jLabelContractID))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jAddContractButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(172, 172, 172)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelOriginCity, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -176,9 +169,7 @@ public class ContractView extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(19, 19, 19)
                         .addComponent(jLabel5)
-                        .addGap(36, 36, 36)
-                        .addComponent(jAddContractButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(65, 65, 65)
                         .addComponent(jLabelContractCount))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -204,6 +195,14 @@ public class ContractView extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuNewContract);
+
+        jMenuQuit.setText("Quit");
+        jMenuQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuQuitActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuQuit);
 
         jMenuBar1.add(jMenu2);
 
@@ -244,8 +243,11 @@ public class ContractView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboOriginCityActionPerformed
 
+    private void jMenuQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuQuitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuQuitActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jAddContractButton;
     private javax.swing.JButton jBidButton;
     private javax.swing.JComboBox<String> jComboOriginCity;
     private javax.swing.JDialog jDialog1;
@@ -263,6 +265,7 @@ public class ContractView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuNewContract;
+    private javax.swing.JMenuItem jMenuQuit;
     private javax.swing.JButton jNextButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -289,8 +292,8 @@ public class ContractView extends javax.swing.JFrame {
         jBidButton.addActionListener(listenForBidButton);
     }
     
-    void addAddContractListener(ActionListener listenForAddContractButton) {
-        jAddContractButton.addActionListener(listenForAddContractButton);
+    void addAddContractListener(ActionListener listenForNewContract) {
+        jMenuNewContract.addActionListener(listenForNewContract);
     }
 
     void displayErrorMessage(String errorMessage) {
