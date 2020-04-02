@@ -1,5 +1,6 @@
 package selectcontract;
 //test
+
 import java.sql.Connection;
 
 import java.sql.CallableStatement;
@@ -12,18 +13,17 @@ import javax.sql.DataSource;
 import oracle.jdbc.OracleCallableStatement;
 import oracle.jdbc.OracleTypes;
 
-
 class ContractModel {
 
     private ArrayList<Contract> theContracts;
     private int contractCounter;
-    private ArrayList<Contract> theContractsAll;
+    private final ArrayList<Contract> theContractsAll;
     private SortedSet<String> originCityList;
 
     public ContractModel() throws SQLException {
 
         contractCounter = 0;
-        theContracts = new ArrayList<Contract>();
+        theContracts = new ArrayList<>();
         originCityList = new TreeSet<>();
 
         DataSource ds = MyDataSourceFactory.getOracleDataSource();

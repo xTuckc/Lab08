@@ -5,9 +5,7 @@
  */
 package selectcontract;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -19,6 +17,10 @@ public class AddContract extends javax.swing.JDialog {
 
     /**
      * Creates new form AddContract
+     *
+     * @param f
+     * @param m
+     * @param theContract
      */
     public AddContract(JFrame f, boolean m, Contract theContract) {
         super(f, m);
@@ -192,47 +194,43 @@ public class AddContract extends javax.swing.JDialog {
         String printout = contractID + "," + origin + "," + destination + "," + order;
         JFrame frame = new JFrame();
 
-        try {
-            if (!contractID.isEmpty() && contractID.matches("^[0-9][a-zA-Z]{3}$")) {
-                if (!origin.isEmpty() && origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George")) {
-                    if (!destination.isEmpty() && destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George")) {
-                        if ((!origin.equals(destination))) {
-                            if (!order.isEmpty() && order.matches("^[a-zA-Z0-9]*$") && (!order.matches("[0-9]*")) && (order.matches("^[^,]+"))) {
-                                FileWriter fileWriter = new FileWriter("C:\\Users\\tuckw\\OneDrive\\ICS_WINTER_2020\\ICS125\\SelectContractLab07\\Lab07\\src\\selectcontract\\contracts.txt", true);
-                                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                                fileWriter.write("\n" + printout);
-                                fileWriter.close();
-                                bufferedWriter.close();
-                                JOptionPane.showMessageDialog(frame, "Your order of: " + order + ", from " + origin + " to " + destination + " has been successfully been placed.\nYour Contract ID is: " + contractID);
-                                jTextContractID.setText("");
-                                jTextOrigin.setText("");
-                                jTextDestination.setText("");
-                                jTextOrderItem.setText("");
-                            } else {
-                                JOptionPane.showMessageDialog(frame, "Invalid Order item");
+        if (!contractID.isEmpty() && contractID.matches("^[0-9][a-zA-Z]{3}$")) {
+            if (!origin.isEmpty() && origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George")) {
+                if (!destination.isEmpty() && destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George")) {
+                    if ((!origin.equals(destination))) {
+                        if (!order.isEmpty() && order.matches("^[a-zA-Z0-9]*$") && (!order.matches("[0-9]*")) && (order.matches("^[^,]+"))) {
+                            try {
+                                ContractOracle.saveContract(new Contract(jTextContractID.getText(), jTextOrigin.getText(), jTextDestination.getText(), jTextOrderItem.getText()));
+                            } catch (SQLException s) {
+                                System.out.println(s.getMessage());
                             }
+                            JOptionPane.showMessageDialog(frame, "Your order of: " + order + ", from " + origin + " to " + destination + " has been successfully been placed.\nYour Contract ID is: " + contractID);
+                            jTextContractID.setText("");
+                            jTextOrigin.setText("");
+                            jTextDestination.setText("");
+                            jTextOrderItem.setText("");
                         } else {
-                            JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
+                            JOptionPane.showMessageDialog(frame, "Invalid Order item");
                         }
                     } else {
-                        if (origin.equals(destination)) {
-                            JOptionPane.showMessageDialog(frame, "Invalid Destination entry");
-                        } else if (!(destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George"))) {
-                            JOptionPane.showMessageDialog(frame, "Invalid Destination entry");
-                        }
+                        JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
                     }
                 } else {
                     if (origin.equals(destination)) {
-                        JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
-                    } else if (!(origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George"))) {
-                        JOptionPane.showMessageDialog(frame, "Invalid Origin entry");
+                        JOptionPane.showMessageDialog(frame, "Invalid Destination entry");
+                    } else if (!(destination.matches("Victoria") || destination.matches("Vancouver") || destination.matches("Seattle") || destination.matches("Nanaimo") || destination.matches("Prince George"))) {
+                        JOptionPane.showMessageDialog(frame, "Invalid Destination entry");
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(frame, "Invalid ContractID entry");
+                if (origin.equals(destination)) {
+                    JOptionPane.showMessageDialog(frame, "Origin cannot match destination");
+                } else if (!(origin.matches("Victoria") || origin.matches("Vancouver") || origin.matches("Seattle") || origin.matches("Nanaimo") || origin.matches("Prince George"))) {
+                    JOptionPane.showMessageDialog(frame, "Invalid Origin entry");
+                }
             }
-        } catch (IOException e) {
-            System.out.println(e);
+        } else {
+            JOptionPane.showMessageDialog(frame, "Invalid ContractID entry");
         }
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
