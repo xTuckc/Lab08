@@ -207,7 +207,7 @@ public class AddContract extends javax.swing.JDialog {
                                 jTextContractID.setText("");
                                 jTextOrigin.setText("");
                                 jTextDestination.setText("");
-                                jTextOrderItem.setText("");                              
+                                jTextOrderItem.setText("");
                             } else {
                                 JOptionPane.showMessageDialog(frame, "Invalid Order item");
                             }

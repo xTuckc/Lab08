@@ -1,5 +1,6 @@
 package selectcontract;
 //test 
+
 public class Contract {
 
     String contractID;

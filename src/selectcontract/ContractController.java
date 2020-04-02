@@ -1,5 +1,6 @@
 package selectcontract;
 //test
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -8,7 +9,7 @@ import java.awt.event.ItemListener;
 class ContractController {
 
     private final ContractView theView;
-    private final ContractModel theModel;
+    private ContractModel theModel;
 
     ContractController(ContractView theView, ContractModel theModel) {
         this.theView = theView;
@@ -109,7 +110,7 @@ class ContractController {
             }
         }
     }
-    
+
     class AddContractListener implements ActionListener {
 
         @Override
@@ -120,8 +121,11 @@ class ContractController {
                 ac.setLocationRelativeTo(null);
                 ac.setVisible(true);
             } catch (Exception ex) {
-                System.out.println(ex);               
+                System.out.println(ex);
             }
+            theModel = new ContractModel();
+            theView.revalidate();
+            setUpDisplay();
         }
     }
 }

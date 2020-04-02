@@ -1,5 +1,6 @@
 package selectcontract;
 //test
+
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import javax.swing.DefaultComboBoxModel;
@@ -291,7 +292,7 @@ public class ContractView extends javax.swing.JFrame {
     void addBidListener(ActionListener listenForBidButton) {
         jBidButton.addActionListener(listenForBidButton);
     }
-    
+
     void addAddContractListener(ActionListener listenForNewContract) {
         jMenuNewContract.addActionListener(listenForNewContract);
     }
